@@ -1,0 +1,229 @@
+:root {
+    --primary-gradient: linear-gradient(135deg, #9FFFCB, #7AE582);
+    --dark-bg: rgba(0,0,0,0); 
+    --neo-shadow: 4px 4px 12px rgba(5,5,9,0.4), -4px -4px 12px rgba(15,15,21,0.4);
+    --neo-border: 1px solid rgba(255, 255, 255, 0.05);
+    --text-primary: rgba(255, 255, 255, 0.9);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--dark-bg);
+    color: var(--text-primary);
+    font-family: 'Inter', system-ui, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.neo-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gradient-text {
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+}
+
+.gradient-text .music-icon {
+    font-size: 0.7em;
+    vertical-align: baseline;
+    margin-right: 0.4rem;
+}
+
+.history-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 1rem 0;
+}
+
+.neo-card {
+    width: 100%;
+    max-width: 800px;
+    background: rgba(20, 20, 25, 0.6);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 1rem 1.5rem 1rem 4rem;
+    display: flex;
+    gap: 1rem;
+    box-shadow: var(--neo-shadow);
+    border: var(--neo-border);
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.neo-card:hover {
+    transform: translateY(-5px);
+}
+
+.art-container {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
+}
+
+.album-art {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.art-overlay {
+    display: none;
+}
+
+.song-info {
+    flex: 1;
+}
+
+.song-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.4rem;
+}
+
+.song-artist {
+    opacity: 0.8;
+    font-size: 0.9rem;
+}
+
+.time-bar {
+    height: 3px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    margin-top: 1rem;
+}
+
+.time-progress {
+    height: 100%;
+    background: var(--primary-gradient);
+    width: 0%;
+    transition: width 0.5s linear;
+    border-radius: 2px;
+}
+
+.radio-status {
+    position: static;
+    margin: 1rem auto 0;
+    transform: none;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 1.5rem;
+    justify-content: center;
+    gap: 0.8rem;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    border: var(--neo-border);
+}
+
+.pulsar {
+    width: 12px;
+    height: 12px;
+    background: #FF0000;
+    border-radius: 50%;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(255, 0, 0, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 0, 0, 0); }
+}
+
+.song-number {
+    position: absolute;
+    left: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    opacity: 0.8;
+}
+
+.time-since {
+    position: absolute;
+    right: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.9rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+    opacity: 1;
+    font-weight: 600;
+    padding: 0.3rem 0.6rem;
+    border-radius: 20px;
+    backdrop-filter: blur(4px);
+    border: var(--neo-border);
+    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    .gradient-text {
+        font-size: 2rem;
+    }
+    
+    .neo-card {
+        max-width: 100%;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding-left: 2rem;
+    }
+    
+    .song-number {
+        left: 0.8rem;
+        font-size: 1.2rem;
+    }
+    
+    .art-container {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .history-container {
+        max-width: 100%;
+        padding: 1rem;
+    }
+    
+    .time-since {
+        right: 1rem;
+        font-size: 0.8rem;
+        padding: 0.2rem 0.5rem;
+        background: rgba(20, 20, 25, 0.7);
+    }
+}

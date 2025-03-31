@@ -1,0 +1,41 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historial Stereo JM - Neoformismo Digital</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="app.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="neo-header">
+            <h1 class="gradient-text"><span class="music-icon">🎵</span> Historial de Canciones</h1>
+            <div class="radio-status">
+                <div class="pulsar"></div>
+                <span>En Vivo</span>
+            </div>
+        </header>
+        
+        <main class="history-container">
+            <!-- Dynamic content will be injected here -->
+        </main>
+    </div>
+    
+    <template id="song-template">
+        <article class="neo-card">
+            <div class="song-number"></div>
+            <div class="art-container">
+                <img class="album-art" loading="lazy">
+            </div>
+            <div class="song-info">
+                <h2 class="song-title"></h2>
+                <p class="song-artist"></p>
+                <div class="time-bar">
+                    <div class="time-progress"></div>
+                </div>
+            </div>
+            <div class="time-since"></div>
+        </article>
+    </template>
+</body>
+</html>
